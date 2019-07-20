@@ -15,9 +15,14 @@
   @import './assets/styles/base.scss';
 
   .container {
+    min-width: 320px;
     max-width: 960px;
     margin: 0 auto;
-    padding: 60px 0;
+    padding: 12vw 0;
+  
+    @include min-xs {
+      padding: 60px 0;
+    }
   }
 </style>
 

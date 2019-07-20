@@ -17,9 +17,19 @@
 
 <style scoped lang="scss">
   .toggle {
-    position: fixed;
-    right: 20px;
-    top: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px;
+
+    @include min-xs {
+      position: fixed;
+    }
+
+    @include min-md {
+      right: 10px;
+      top: 10px;
+    }
 
     .sun,
     .moon {
@@ -66,11 +76,9 @@
   export default {
     name: 'ThemeToggle',
 
-    data () {
-      return {
-        isDark: false
-      }
-    },
+    data: () => ({
+      isDark: false
+    }),
 
     computed: {
       mode () {

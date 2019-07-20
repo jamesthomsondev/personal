@@ -11,8 +11,12 @@
     text-align: center;
 
     a {
-      color: var(--color-text);
       font-size: var(--h1);
+      color: var(--color-text);
+
+      @include min-xs {
+        font-size: 6rem;
+      }
     }
   }
 </style>

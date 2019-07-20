@@ -8,14 +8,23 @@
 
 <style scoped lang="scss">
   nav {
-    margin-bottom: 60px;
+    margin-bottom: 10vw;
     text-align: center;
 
-    a {
-      margin: 0 20px;
+    @include min-xs {
+      margin-bottom: 60px;
+    }
 
+    a {
+      margin: 0 10px;
+      
+      font-size: var(--h3);
       color: var(--color-link);
-      font-size: 2.6rem;
+
+      @include min-xs {
+        font-size: 2.6rem;
+        margin: 0 20px;
+      }
 
       &.active {
         color: var(--color-link-active);
