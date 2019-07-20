@@ -2,18 +2,6 @@
   box-sizing: border-box;
 }
 
-:root {
-  --white: white;
-  --black: black;
-
-  --gray-0: #EFEFEF;
-  --gray-10: #CCCCCC;
-  --gray-20: #808080;
-  --gray-30: #333333;
-
-  background-color: var(--white);
-}
-
 :root, body {
   height: 100%;
 }

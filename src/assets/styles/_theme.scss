@@ -1,0 +1,39 @@
+:root {
+  --white: white;
+  --black: black;
+
+  --gray-0: #EFEFEF; // Lightest
+  --gray-10: #CCCCCC;
+  --gray-20: #808080;
+  --gray-30: #333333;
+  --gray-40: #2b2b2b;
+
+  --color-bg: var(--white);
+  --color-text: var(--black);
+  --color-link: var(--gray-20);
+  --color-link-hover: var(--gray-30);
+  --color-link-active: var(--black);
+
+  background-color: var(--white);
+}
+
+@mixin dark-mode {
+  --color-bg: var(--black);
+  --color-text: var(--white);
+  --color-link: var(--gray-10);
+  --color-link-hover: var(--gray-0);
+  --color-link-active: var(--white);
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.is-dark {
+  @include dark-mode;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    @include dark-mode;
+  }
+}
