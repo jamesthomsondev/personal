@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="container">
+    <theme-toggle />
 
     <header>
       <logo />
@@ -21,6 +22,7 @@
 </style>
 
 <script>
+  import ThemeToggle from '@/components/ThemeToggle';
   import Logo from '@/components/Logo';
   import Navigation from '@/components/Navigation';
 
@@ -28,6 +30,7 @@
     name: 'App',
 
     components: {
+      ThemeToggle,
       Logo,
       Navigation
     }
