@@ -1,0 +1,36 @@
+<template>
+  <nav>
+    <router-link to="/work">Work.</router-link>
+    <router-link to="/educate">Educate.</router-link>
+    <router-link to="/experience">Experience.</router-link>
+  </nav>
+</template>
+
+<style scoped lang="scss">
+  nav {
+    margin-bottom: 60px;
+    text-align: center;
+
+    a {
+      margin: 0 20px;
+
+      color: var(--color-link);
+      font-size: 2.6rem;
+
+      &.active {
+        color: var(--color-link-active);
+      }
+
+      &:hover {
+        color: var(--color-link-hover);
+      }
+    }
+  }
+</style>
+
+<script>
+  export default {
+    name: 'Navigation'
+  };
+</script>
+
