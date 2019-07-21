@@ -19,7 +19,7 @@
       margin: 0 10px;
       
       font-size: var(--h3);
-      color: var(--color-link);
+      color: var(--color-nav-link);
 
       @include min-xs {
         font-size: 2.6rem;
@@ -27,11 +27,11 @@
       }
 
       &.active {
-        color: var(--color-link-active);
+        color: var(--color-nav-link-active);
       }
 
       &:hover {
-        color: var(--color-link-hover);
+        color: var(--color-nav-link-hover);
       }
     }
   }

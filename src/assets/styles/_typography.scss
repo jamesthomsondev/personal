@@ -88,5 +88,20 @@ p {
 
 a {
   font-size: inherit;
+  color: var(--color-link);
   text-decoration: none;
+
+  &:hover {
+    color: var(--color-link-hover);
+  }
+
+  &:active {
+    color: var(--color-link-active);
+  }
+}
+
+.small {
+  @include min-sm {
+    font-size: calc(var(--p) / 1.3);
+  }
 }

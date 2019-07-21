@@ -2,6 +2,12 @@
   --white: white;
   --black: black;
 
+  --eggplant-0: #2c2938; // Lightest
+  --eggplant-10: #1c1a24;
+
+  --blue-0: #346ca6; // Lightest
+  --blue-10: #193D60;
+
   --gray-0: #EFEFEF; // Lightest
   --gray-10: #CCCCCC;
   --gray-20: #808080;
@@ -10,23 +16,38 @@
 
   --color-bg: var(--white);
   --color-bg-inverse: var(--black);
+  --color-bg-hover: var(--gray-0);
+
   --color-text: var(--black);
   --color-text-secondary: var(--gray-40);
-  --color-link: var(--gray-20);
-  --color-link-hover: var(--gray-30);
-  --color-link-active: var(--black);
+
+  --color-link: var(--blue-0);
+  --color-link-hover: var(--blue-10);
+  --color-link-active: var(--blue-10);
+
+  --color-nav-link: var(--gray-20);
+  --color-nav-link-hover: var(--gray-30);
+  --color-nav-link-active: var(--black);
 
   background-color: var(--white);
 }
 
 @mixin dark-mode {
-  --color-bg: var(--black);
+  --color-bg: var(--eggplant-10);
   --color-bg-inverse: var(--white);
+  --color-bg-hover: var(--eggplant-0);
+
   --color-text: var(--white);
   --color-text-secondary: var(--gray-10);
+
   --color-link: var(--gray-10);
   --color-link-hover: var(--gray-0);
   --color-link-active: var(--white);
+
+  --color-nav-link: var(--gray-10);
+  --color-nav-link-hover: var(--gray-0);
+  --color-nav-link-active: var(--white);
+
 
   background-color: var(--color-bg);
   color: var(--color-text);
