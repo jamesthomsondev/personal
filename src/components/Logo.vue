@@ -12,7 +12,7 @@
 
     a {
       font-size: var(--h1);
-      color: var(--color-text);
+      color: var(--color-text-0);
 
       @include min-xs {
         font-size: 6rem;

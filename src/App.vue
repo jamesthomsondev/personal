@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container">
+  <main id="app" class="container">
     <theme-toggle />
 
     <header>
@@ -8,7 +8,7 @@
     </header>
 
     <router-view/>
-  </div>
+  </main>
 </template>
 
 <style lang="scss">

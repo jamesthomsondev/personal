@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <h1>Work Page</h1>
-  </div>
+  <section>
+    <showcase v-for="showcase in 4" :key="showcase" />
+  </section>
 </template>
 
 <style scoped lang="scss">
@@ -9,7 +9,11 @@
 </style>
 
 <script>
-  export default {
+  import Showcase from '@/components/Showcase';
 
+  export default {
+    components: {
+      Showcase
+    }
   }
 </script>

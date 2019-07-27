@@ -18,7 +18,7 @@
     a {
       margin: 0 10px;
       
-      font-size: var(--h3);
+      font-size: 2.2rem;
       color: var(--color-nav-link);
 
       @include min-xs {

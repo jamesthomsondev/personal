@@ -21,6 +21,11 @@ export default new Router({
       path: '/educate',
       name: 'educate',
       component: () => import(/* webpackChunkName: "educate" */ './views/Educate.vue')
+    },
+    {
+      path: '/experience',
+      name: 'experience',
+      component: () => import(/* webpackChunkName: "experience" */ './views/Experience.vue')
     }
   ]
 })
