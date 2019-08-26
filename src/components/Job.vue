@@ -1,19 +1,12 @@
-<template>
+<template functional>
   <div class="job">
     <div class="years">
-      <span>2019</span>
-      <span>2018</span>
-      <span>2017</span>
-      <span>2016</span>
+      <span v-for="year in props.years" :key="year">{{ year }}</span>
     </div>
-    <h3>Senior FE Web Developer</h3>
-    <h4>BRND WGN</h4>
+    <h3>{{ props.title }}</h3>
+    <h4>{{ props.company }}</h4>
     <ul>
-      <li>Project lead for development of Casino.eu ecosystem</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+      <li v-for="(item, index) in props.list" :key="index">{{ item }}</li>
     </ul>
   </div>
 </template>
@@ -111,28 +104,26 @@
   export default {
     name: 'Job',
 
-    components: {
-
-    },
-
     props: {
+      title: {
+        type: String,
+        required: true
+      },
 
-    },
+      company: {
+        type: String,
+        required: true
+      },
 
-    data: () => ({
-      
-    }),
+      years: {
+        type: Array,
+        required: true
+      },
 
-    computed: {
-
-    },
-
-    methods: {
-
-    },
-
-    created () {
-
+      list: {
+        type: Array,
+        required: true
+      }
     }
   };
 </script>

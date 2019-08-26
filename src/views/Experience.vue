@@ -1,10 +1,22 @@
 <template>
   <section class="grid">
     <div class="skillsets">
-      <skillset v-for="set in 2" :key="set" />
+      <skillset 
+        v-for="set in skillsets" 
+        :key="set.heading"
+        :heading="set.heading"
+        :list="set.list"
+      />
     </div>
     <div class="timeline">
-      <job v-for="job in 4" :key="job" />
+      <job 
+        v-for="job in jobs"
+        :key="job.title"
+        :title="job.title"
+        :company="job.company"
+        :years="job.years"
+        :list="job.list"
+      />
     </div>
   </section>
 </template>
@@ -32,12 +44,17 @@
 
       @include min-sm {
         order: 1;
+        max-width: 570px;
       }
     }
   }
 </style>
 
 <script>
+  // api
+  import { getSkillsets, getJobs } from '@/api';
+
+  // Component
   import Skillset from '@/components/Skillset';
   import Job from '@/components/Job';
 
@@ -49,24 +66,14 @@
       Job
     },
 
-    props: {
-
-    },
-
     data: () => ({
-      
+      skillsets: [],
+      jobs: []
     }),
 
-    computed: {
-
-    },
-
-    methods: {
-
-    },
-
     created () {
-
+      getSkillsets().then(({ data }) => this.skillsets = data.data);
+      getJobs().then(({ data }) => this.jobs = data.data);
     }
   };
 </script>

@@ -1,32 +1,8 @@
-<template>
+<template functional>
   <aside>
-    <h3>Knowledge</h3>
+    <h3 v-if="props.heading">{{ props.heading }}</h3>
     <ul>
-      <li>JavaScript (es6+)</li>
-      <li>Vue</li>
-      <li>HTML5</li>
-      <li>CSS3</li>
-      <li>Webpack</li>
-      <li>Node.js</li>
-      <li>GSAP</li>
-      <li>Git</li>
-      <li>SVG</li>
-      <li>WebSockets</li>
-      <li>Express</li>
-    </ul>
-
-    <ul>
-      <li>JavaScript (es6+)</li>
-      <li>Vue</li>
-      <li>HTML5</li>
-      <li>CSS3</li>
-      <li>Webpack</li>
-      <li>Node.js</li>
-      <li>GSAP</li>
-      <li>Git</li>
-      <li>SVG</li>
-      <li>WebSockets</li>
-      <li>Express</li>
+      <li v-for="(item, index) in props.list" :key="index">{{ item }}</li>
     </ul>
   </aside>
 </template>
@@ -62,28 +38,16 @@
   export default {
     name: 'Skillset',
 
-    components: {
-
-    },
-
     props: {
+      heading: {
+        type: String,
+        default: ''
+      },
 
-    },
-
-    data: () => ({
-      
-    }),
-
-    computed: {
-
-    },
-
-    methods: {
-
-    },
-
-    created () {
-
+      list: {
+        type: Array,
+        required: true
+      }
     }
   };
 </script>
