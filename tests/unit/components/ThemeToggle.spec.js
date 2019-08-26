@@ -1,6 +1,6 @@
-import { expect } from 'chai'
-import { shallowMount, createLocalVue } from '@vue/test-utils'
-import ThemeToggle from '@/components/ThemeToggle.vue'
+import { expect } from 'chai';
+import { shallowMount, createLocalVue } from '@vue/test-utils';
+import ThemeToggle from '@/components/ThemeToggle.vue';
 
 const localVue = createLocalVue();
 
