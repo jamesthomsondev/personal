@@ -1,17 +1,19 @@
 <template>
-  <div class="hero">
-    <img 
-      src="https://images.unsplash.com/photo-1563242541-b204a2a7d88d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=960&h=420&q=100" 
-      srcset="  
-        https://images.unsplash.com/photo-1563242541-b204a2a7d88d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&h=840&q=100 640w,
-        https://images.unsplash.com/photo-1563242541-b204a2a7d88d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=960&h=420&q=100 960w,
-        https://images.unsplash.com/photo-1563242541-b204a2a7d88d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1242&h=1260&q=100 1242w,
-        https://images.unsplash.com/photo-1563242541-b204a2a7d88d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&h=840&q=100 1920w
-      "
-      sizes="(min-width: 540px) 960px, 100vw"
-      alt=""
-    >
-  </div>
+  <hover-intent :ms="{ in: 1000, out: 500 }" @in="isActive = true" @out="isActive = false">
+    <div class="hero" :class="{ 'is-active': isActive }">
+      <img 
+        src="https://images.unsplash.com/photo-1563242541-b204a2a7d88d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=960&h=420&q=100" 
+        srcset="  
+          https://images.unsplash.com/photo-1563242541-b204a2a7d88d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&h=840&q=100 640w,
+          https://images.unsplash.com/photo-1563242541-b204a2a7d88d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=960&h=420&q=100 960w,
+          https://images.unsplash.com/photo-1563242541-b204a2a7d88d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1242&h=1260&q=100 1242w,
+          https://images.unsplash.com/photo-1563242541-b204a2a7d88d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&h=840&q=100 1920w
+        "
+        sizes="(min-width: 540px) 960px, 100vw"
+        alt=""
+      >
+    </div>
+  </hover-intent>
 </template>
 
 <style scoped lang="scss">
@@ -44,8 +46,7 @@
       transition: max-width var(--transition-medium), height var(--transition-medium) var(--delay-short);
     }
 
-    // Move this to a class which we'll toggle
-    &:hover {
+    &.is-active {
       max-width: 960px;
       height: 420px;
     }
@@ -53,11 +54,13 @@
 </style>
 
 <script>
+  import HoverIntent from './HoverIntent';
+
   export default {
     name: 'Hero',
 
     components: {
-
+      HoverIntent
     },
 
     props: {
@@ -65,7 +68,7 @@
     },
 
     data: () => ({
-      
+      isActive: false
     }),
 
     computed: {
