@@ -4,7 +4,7 @@ import HoverIntent from '@/components/HoverIntent.vue';
 
 const localVue = createLocalVue();
 
-describe.only('HoverIntent.vue', () => {
+describe('HoverIntent.vue', () => {
   let wrapper;
 
   beforeEach (() => {
