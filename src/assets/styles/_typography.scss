@@ -89,8 +89,11 @@ p {
 
 a {
   font-size: inherit;
+  text-decoration: none; 
+}
+
+.link {
   color: var(--color-link);
-  text-decoration: none;
 
   &:hover {
     color: var(--color-link-hover);
@@ -98,6 +101,10 @@ a {
 
   &:active {
     color: var(--color-link-active);
+  }
+
+  &:visited {
+    color: var(--color-link-visited);
   }
 }
 
