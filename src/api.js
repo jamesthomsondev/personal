@@ -7,3 +7,7 @@ export function getSkillsets () {
 export function getJobs () {
   return axios.get('/db/jobs.json');
 }
+
+export function getArticles () {
+  return axios.get('/db/articles.json');
+}
