@@ -21,7 +21,7 @@
     padding: 12vw 0;
   
     @include min-xs {
-      padding: 60px 0;
+      padding: 60px 0 0;
     }
   }
 </style>
