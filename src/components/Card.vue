@@ -2,13 +2,13 @@
   <article class="card hitarea" :class="props.type">
     <a :href="props.url" target="_blank">
       <img 
-        src="https://images.unsplash.com/photo-1563627890887-ed335358e2a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=280&h=160&q=100 280w" 
-        srcset="  
-          https://images.unsplash.com/photo-1563627890887-ed335358e2a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=280&h=160&q=100 280w,
-          https://images.unsplash.com/photo-1563627890887-ed335358e2a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=344&h=160&q=100 344w,
-          https://images.unsplash.com/photo-1563627890887-ed335358e2a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=560&h=320&q=100 560w,
-          https://images.unsplash.com/photo-1563627890887-ed335358e2a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=688&h=320&q=100 688w,
-        "
+        :src="`${ props.image }?nf_resize=fit&w=280&h=160 280w`" 
+        :srcset="`
+          ${ props.image }?nf_resize=fit&w=280&h=160 280w,
+          ${ props.image }?nf_resize=fit&w=344&h=160 344w,
+          ${ props.image }?nf_resize=fit&w=560&h=320 560w,
+          ${ props.image }?nf_resize=fit&w=688&h=320 688w,
+        `"
         sizes="(min-width: 992px) 280px, 100vw"
         alt=""
       >
@@ -117,6 +117,11 @@
       },
 
       text: {
+        type: String,
+        required: true
+      },
+
+      image: {
         type: String,
         required: true
       },
