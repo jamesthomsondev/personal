@@ -3,11 +3,7 @@
     <card 
       v-for="article in articles" 
       :key="article.title"
-      :type="article.type"
-      :title="article.title"
-      :subTitle="article.subTitle"
-      :text="article.text"
-      :url="article.url"
+      v-bind="article"
     />
   </section>
 </template>

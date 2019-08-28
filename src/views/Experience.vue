@@ -4,18 +4,14 @@
       <skillset 
         v-for="set in skillsets" 
         :key="set.heading"
-        :heading="set.heading"
-        :list="set.list"
+        v-bind="set"
       />
     </div>
     <div class="timeline">
       <job 
         v-for="job in jobs"
         :key="job.title"
-        :title="job.title"
-        :company="job.company"
-        :years="job.years"
-        :list="job.list"
+        v-bind="job"
       />
     </div>
   </section>
@@ -51,7 +47,7 @@
 </style>
 
 <script>
-  // api
+  // API
   import { getSkillsets, getJobs } from '@/api';
 
   // Component
