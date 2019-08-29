@@ -7,7 +7,11 @@
       <navigation />
     </header>
 
-    <router-view/>
+    <transition name="fade" mode="out-in">
+      <keep-alive>
+        <router-view/>
+      </keep-alive>
+    </transition>
   </main>
 </template>
 
@@ -23,6 +27,18 @@
     @include min-xs {
       padding: 60px 0 0;
     }
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s linear;
+  }
+
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+
+  .fade-enter-to, .fade-leave {
+    opacity: 1;
   }
 </style>
 
