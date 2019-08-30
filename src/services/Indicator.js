@@ -2,11 +2,13 @@ export function Indicator ({
     width = 40,
     height = 40,
     stroke = 4,
-    color = 'black',
+    color = 'white',
     duration = 250,
     easing = 'linear',
     event
   }) {
+    let { svg, circle } = this;
+
     const radius = (width / 2) - stroke;
     const circumference = 2 * Math.PI * radius;
 
@@ -15,14 +17,14 @@ export function Indicator ({
       svg.style.top = e.y - (height / 2) + 'px';
     }
 
-    let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('viewBox', `0 0 ${ width } ${ height }`);
     svg.setAttribute('width', width);
     svg.setAttribute('height', height);
     svg.style.position = 'fixed';
     svg.style.pointerEvents = 'none';
 
-    let circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
     circle.style.transition = `all ${ duration }ms ${ easing }`;
     circle.setAttribute('cx', width / 2);
     circle.setAttribute('cy', height / 2);
@@ -45,10 +47,10 @@ export function Indicator ({
 
     document.addEventListener('mousemove', updatePosition);
 
-    return {
-      kill () {
-        document.removeEventListener('mousemove', updatePosition);
-        svg.remove();
-      }
+    this.kill = () => {
+      document.removeEventListener('mousemove', updatePosition);
+      svg.remove();
     }
+
+    return this;
   }

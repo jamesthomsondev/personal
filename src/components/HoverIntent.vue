@@ -1,8 +1,6 @@
 <script>
   import { Indicator } from '@/services/Indicator';
 
-  let isActive = false;
-  let progressIndicator = null;
   let timerIn = null;
   let timerOut = null;
 
@@ -10,6 +8,11 @@
     name: 'HoverIntent',
 
     props: {
+      color: {
+        type: String,
+        default: 'white'
+      },
+
       ms: {
         type: Object,
         default: () => ({
@@ -19,34 +22,38 @@
       }
     },
 
+    data: () => ({
+      isActive: false
+    }),
+
     methods: {
       handleIn (e) {
         clearTimeout(timerOut);
 
         timerIn = setTimeout(() => {
-          if (!isActive) {
+          if (!this.isActive) {
             console.log('in');
             this.$emit('in');
 
-            isActive = true;
+            this.isActive = true;
           }
           
-          if (progressIndicator) progressIndicator.kill();
-        }, this.ms.in);
+          if (this.progressIndicator) {this.progressIndicator.kill(); this.progressIndicator = null; console.log(this.progressIndicator);}
+        }, this.ms.in - 200);
 
-        if (!isActive) progressIndicator = new Indicator({ duration: this.ms.in, easing: 'cubic-bezier(0.8, 0.8, 0, 1)', event: e });
+        if (!this.isActive) this.progressIndicator = new Indicator({ color: this.color, duration: this.ms.in, easing: 'cubic-bezier(0.8, 0.8, 0, 1)', event: e });
       },
 
       handleOut () {
         clearTimeout(timerIn);
 
-        if (progressIndicator) progressIndicator.kill();
+        if (this.progressIndicator) {this.progressIndicator.kill(); this.progressIndicator = null; console.log(this.progressIndicator);}
 
         timerOut = setTimeout(() => {
-          if (isActive) {
+          if (this.isActive) {
             console.log('out');
             this.$emit('out');
-            isActive = false;
+            this.isActive = false;
           }
         }, this.ms.out);
       }
