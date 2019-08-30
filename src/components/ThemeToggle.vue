@@ -1,5 +1,5 @@
 <template>
-  <button class="button toggle" :class="`toggle--${ mode }`" @click="toggle">
+  <button class="button toggle" :class="`toggle--${ theme }`" @click="toggle">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
       <defs>
         <clipPath id="theme-clip-path">
@@ -77,22 +77,37 @@
     name: 'ThemeToggle',
 
     data: () => ({
-      isDark: false
+      theme: 'is-light'
     }),
-
-    computed: {
-      mode () {
-        return this.isDark ? 'is-dark' : 'is-light';
-      }
-    },
 
     methods: {
       toggle () {
-        removeClassFromRoot(this.mode);
+        (this.theme === 'is-light' ? this.setAsDark() : this.setAsLight());
+      },
 
-        this.isDark = !this.isDark;
+      setAsDark () {
+        removeClassFromRoot(this.theme);
+        this.theme = 'is-dark';
+        window.localStorage.setItem('theme', this.theme);
+        addClassToRoot(this.theme);
+      },
 
-        addClassToRoot(this.mode);
+      setAsLight () {
+        removeClassFromRoot(this.theme);
+        this.theme = 'is-light';
+        window.localStorage.setItem('theme', this.theme);
+        addClassToRoot(this.theme);
+      }
+    },
+
+    created () {
+      let theme = window.localStorage.getItem('theme');
+      let prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (prefersDark || theme === 'is-dark') { 
+        this.setAsDark();
+      } else {
+        this.setAsLight();
       }
     }
   };

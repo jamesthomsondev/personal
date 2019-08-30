@@ -68,9 +68,3 @@
 .is-dark {
   @include dark-mode;
 }
-
-@media screen and (prefers-color-scheme: dark) {
-  :root {
-    @include dark-mode;
-  }
-}
