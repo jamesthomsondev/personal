@@ -16,7 +16,7 @@
       <h1>{{ props.title }}</h1>
       <h2 v-if="props.subTitle">{{ props.subTitle }}</h2>
       <p class="small">{{ props.text }}</p>
-      <p class="small"><a class="link" :href="props.url" target="_blank">Visit {{ props.type }}</a></p>
+      <p class="small"><a class="link" :href="props.url" target="_blank">View {{ props.type }}</a></p>
     </a>
   </article>
 </template>
@@ -48,11 +48,18 @@
     }
 
     img {
-      width: 100%;
-      height: 160px;
+      width: calc(100% + 40px);
+      height: 52vw;
+      margin-left: -20px;
       margin-bottom: 30px;
 
       object-fit: cover;
+
+      @include min-sm {
+        width: 100%;
+        height: 160px;
+        margin-left: 0;
+      }
     }
 
     h1 {
