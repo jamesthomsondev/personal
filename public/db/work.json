@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "title": "Casino.eu",
+      "subTitle": "JavaScript, Vue, Webpack, Pusher, HTML, CSS, GSAP",
+      "url": "https://www.casino.eu",
+      "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut odio sapien, cursus sed consectetur ut, efficitur ut erat. Integer sed elit ullamcorper, ultricies lectus vel, fringilla lectus. Nam lobortis porttitor metus. Fusce commodo blandit nisi, a egestas orci semper egestas. Curabitur sodales et sapien non sagittis. Duis rutrum ornare nunc, et cursus lectus elementum dapibus. Phasellus dignissim semper odio, ac aliquam enim vestibulum et. Donec neque mi, ullamcorper non turpis sed, mollis maximus libero. Duis at ante consequat, dictum leo eget, faucibus orci. Donec ut purus efficitur lectus gravida lacinia a sed quam. Phasellus vel libero risus. Etiam id ante sem.</p>",
+      "images": [
+        "/images/work/casino-1.jpg",
+        "/images/work/casino-2.jpg",
+        "/images/work/casino-3.jpg",
+        "/images/work/casino-4.jpg"
+      ]
+    },
+    {
+      "title": "Casino.eu 2",
+      "subTitle": "JavaScript, Vue, Webpack, Pusher, HTML, CSS, GSAP",
+      "url": "https://www.casino.eu",
+      "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut odio sapien, cursus sed consectetur ut, efficitur ut erat. Integer sed elit ullamcorper, ultricies lectus vel, fringilla lectus. Nam lobortis porttitor metus. Fusce commodo blandit nisi, a egestas orci semper egestas. Curabitur sodales et sapien non sagittis. Duis rutrum ornare nunc, et cursus lectus elementum dapibus. Phasellus dignissim semper odio, ac aliquam enim vestibulum et. Donec neque mi, ullamcorper non turpis sed, mollis maximus libero. Duis at ante consequat, dictum leo eget, faucibus orci. Donec ut purus efficitur lectus gravida lacinia a sed quam. Phasellus vel libero risus. Etiam id ante sem.</p>",
+      "images": [
+        "/images/work/casino-1.jpg",
+        "/images/work/casino-2.jpg",
+        "/images/work/casino-3.jpg",
+        "/images/work/casino-4.jpg"
+      ]
+    }
+  ]
+}

@@ -1,12 +1,12 @@
 <template>
   <article class="showcase">
-    <hero />
+    <carousel :items="images" />
 
     <div class="showcase__body">
-      <h1>Casino.eu</h1>
-      <h2>JavaScript, Vue, Webpack, Pusher, HTML, CSS, GSAP</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut odio sapien, cursus sed consectetur ut, efficitur ut erat. Integer sed elit ullamcorper, ultricies lectus vel, fringilla lectus. Nam lobortis porttitor metus. Fusce commodo blandit nisi, a egestas orci semper egestas. Curabitur sodales et sapien non sagittis. Duis rutrum ornare nunc, et cursus lectus elementum dapibus. Phasellus dignissim semper odio, ac aliquam enim vestibulum et. Donec neque mi, ullamcorper non turpis sed, mollis maximus libero. Duis at ante consequat, dictum leo eget, faucibus orci. Donec ut purus efficitur lectus gravida lacinia a sed quam. Phasellus vel libero risus. Etiam id ante sem.</p>
-      <p><a href="#">Visit Live Site</a></p>
+      <h1>{{ title }}</h1>
+      <h2>{{ subTitle }}</h2>
+      <span v-html="text"></span>
+      <p><a class="link" :href="url" target="_blank">Visit Live Site</a></p>
     </div>
   </article>
 </template>
@@ -39,33 +39,40 @@
 </style>
 
 <script>
-  import Hero from '@/components/Hero';
+  import Carousel from '@/components/Carousel';
 
   export default {
     name: 'Showcase',
 
     components: {
-      Hero
+      Carousel
     },
 
     props: {
+      title: {
+        type: String,
+        required: true
+      },
 
-    },
+      subTitle: {
+        type: String,
+        default: ''
+      },
 
-    data: () => ({
-      
-    }),
+      url: {
+        type: String,
+        default: ''
+      },
 
-    computed: {
+      text: {
+        type: String,
+        required: true
+      },
 
-    },
-
-    methods: {
-
-    },
-
-    created () {
-
+      images: {
+        type: Array,
+        required: true
+      }
     }
   };
 </script>

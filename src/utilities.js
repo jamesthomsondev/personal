@@ -11,3 +11,7 @@ export function removeClassFromRoot (className) {
 
   document.documentElement.classList.remove(className);
 }
+
+export function clone (obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
