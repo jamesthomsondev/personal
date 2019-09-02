@@ -1,9 +1,6 @@
 <script>
   import { Indicator } from '@/services/Indicator';
 
-  let timerIn = null;
-  let timerOut = null;
-
   export default {
     name: 'HoverIntent',
 
@@ -23,47 +20,79 @@
     },
 
     data: () => ({
-      isActive: false
+      isActive: false,
+      isTouching: false
     }),
 
     methods: {
       handleIn (e) {
-        clearTimeout(timerOut);
+        clearTimeout(this.timerOut);
 
-        timerIn = setTimeout(() => {
-          if (!this.isActive) {
-            console.log('in');
-            this.$emit('in');
+        if (this.isActive) return;
 
-            this.isActive = true;
-          }
+        this.timerIn = setTimeout(() => {
+          this.$emit('in');
+          this.isActive = true;
           
-          if (this.progressIndicator) {this.progressIndicator.kill(); this.progressIndicator = null; console.log(this.progressIndicator);}
-        }, this.ms.in - 200);
+          if (this.progressIndicator) this.removeIndicator();
+        }, (this.isTouching ? 0 : this.ms.in - 250)); // - 250 to account for indicator easing
 
-        if (!this.isActive) this.progressIndicator = new Indicator({ color: this.color, duration: this.ms.in, easing: 'cubic-bezier(0.8, 0.8, 0, 1)', event: e });
+        this.addIndicator(e);
       },
 
       handleOut () {
-        clearTimeout(timerIn);
+        clearTimeout(this.timerIn);
 
-        if (this.progressIndicator) {this.progressIndicator.kill(); this.progressIndicator = null; console.log(this.progressIndicator);}
+        if (this.progressIndicator) this.removeIndicator();
 
-        timerOut = setTimeout(() => {
-          if (this.isActive) {
-            console.log('out');
-            this.$emit('out');
-            this.isActive = false;
-          }
-        }, this.ms.out);
+        if (!this.isActive) return;
+
+        this.timerOut = setTimeout(() => {
+          this.$emit('out');
+
+          this.isActive = false;
+        }, (this.isTouching ? 0 : this.ms.out));
+      },
+
+      addIndicator (e) {
+        this.progressIndicator = new Indicator({ color: this.color, duration: this.ms.in, easing: 'cubic-bezier(1, 1, 0, 1)', event: e });
+      },
+
+      removeIndicator () {
+        this.progressIndicator.kill(); 
+        this.progressIndicator = null; 
+      },
+
+      handleMouseIn (e) {
+        if (this.isTouching) return;
+        this.handleIn(e);
+      },
+
+      handleMouseOut () {
+        this.handleOut();
+      },
+
+      handleTouchIn (e) {
+        this.isTouching = true;
+        this.handleIn(e);
+        document.addEventListener('touchend', this.handleTouchOut);
+      },
+
+      handleTouchOut (e) {
+        if (this.$el.contains(e.target)) return;
+
+        this.handleOut();
+        this.isTouching = false;
+        document.removeEventListener('touchend', this.handleTouchOut);
       }
     },
 
     render (h) {
       return h('div', {
         on: {
-          mouseenter: this.handleIn,
-          mouseleave: this.handleOut
+          touchstart: this.handleTouchIn,
+          mouseenter: this.handleMouseIn,
+          mouseleave: this.handleMouseOut
         }
       }, this.$slots.default)
     }

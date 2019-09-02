@@ -13,7 +13,7 @@ describe('HoverIntent.vue', () => {
     });
   });
 
-  afterEach(() => wrapper.destroy())
+  afterEach(() => wrapper.destroy());
 
   it ('Renders the component', () => {
     const el = wrapper.find('div');
@@ -40,21 +40,14 @@ describe('HoverIntent.vue', () => {
     expect(wrapper.props('ms').out).to.equal(0);
   });
 
-  it ('Emits an in event on mouseenter', () => {
-    wrapper.setProps({ 
-      ms: { 
-        in: 0, 
-        out: 0
-      }
-    });
-
-    wrapper.trigger('mouseenter');
+  it ('Emits an in event', () => {
+    wrapper.vm.$emit('in');
 
     expect(wrapper.emitted('in')).to.be.ok;
   });
 
-  it ('Emits an out event on mouseleave', () => {
-    wrapper.trigger('mouseleave');
+  it ('Emits an out event', () => {
+    wrapper.vm.$emit('out');
 
     expect(wrapper.emitted('out')).to.be.ok;
   });
