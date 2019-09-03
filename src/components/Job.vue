@@ -27,7 +27,7 @@
     }
 
     @include min-sm {
-      margin-left: 125px;
+      margin-left: 12.5rem;
       padding-bottom: 60px;
     }
 
@@ -61,7 +61,7 @@
 
       @include min-sm {
         position: absolute;
-        left: -105px;
+        left: -10.5rem;
         border: 0;
       }
 

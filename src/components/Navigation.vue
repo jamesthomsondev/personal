@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="nav">
     <router-link to="/work">Work.</router-link>
     <router-link to="/educate">Educate.</router-link>
     <router-link to="/experience">Experience.</router-link>
@@ -7,7 +7,7 @@
 </template>
 
 <style scoped lang="scss">
-  nav {
+  .nav {
     margin-bottom: 10vw;
     text-align: center;
 
