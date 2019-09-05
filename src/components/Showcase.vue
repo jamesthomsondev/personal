@@ -6,7 +6,7 @@
       <h1>{{ title }}</h1>
       <h2>{{ subTitle }}</h2>
       <span v-html="text"></span>
-      <p><a class="link" :href="url" target="_blank">Visit Live Site</a></p>
+      <p v-if="url"><a class="link" :href="url" target="_blank">View Website</a></p>
     </div>
   </article>
 </template>
