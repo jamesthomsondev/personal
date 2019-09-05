@@ -5,23 +5,24 @@
       "company": "BRND WGN",
       "years": ["2019", "2018", "2017", "2016"],
       "list": [
-        "Project lead for development of Casino.eu ecosystem",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "Project lead for development of Casino.eu ecosystem which includes customer and admin web applications",
+        "Worked closely with product managers to meet client expectations",
+        "Advised UX/UI designers, ensuring concepts were achievable and calculated",
+        "Collaborated with backend team speccing and planning feature requests",
+        "Independently handled development of micro projects"
       ]
     },
     {
-      "title": "Lead FE Web Developer",
+      "title": "Lead UX/UI Web Developer",
       "company": "nTrust Inc.",
       "years": ["2015", "2014", "2013"],
       "list": [
         "Lead front end development of multiple web applications",
-        "Lead development of web applications to become entirely responsive across all resolutions",
+        "Guided development of web applications to achieve responsive resolutions across mobile & desktop devices",
         "Modularized & optimized web application infrastructure",
-        "Worked closely with UI designers to ensure concepts could be efficiently implemented",
-        "Worked closely with product team to conceptualize new features"
+        "Worked closely with UX/UI designers to ensure concepts could be efficiently implemented",
+        "Worked closely with product team to conceptualize new features",
+        "Liaisoned with backend team to ensure smooth development cycles"
       ]
     },
     {
@@ -30,8 +31,8 @@
       "years": ["2012", "2011", "2010", "2009"],
       "list": [
         "Interface design, graphic design, storyboard design",
-        "Working with project managers to meet client requests",
-        "Front-end web development (HTML, CSS, jQuery)",
+        "Worked with project managers to meet client requests",
+        "Front-end web development",
         "Mentoring junior web developers",
         "Mobile app & web design",
         "HTML email design & development",
@@ -44,7 +45,7 @@
       "years": ["2009", "2008"],
       "list": [
         "Interface & graphic design",
-        "Front-end web development (HTML, CSS, JS)",
+        "Front-end web development",
         "HTML email design & coding",
         "Information architecture, wireframes, sitemaps",
         "Project management, budgets, time frames",
