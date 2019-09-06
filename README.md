@@ -1,4 +1,6 @@
-# personal
+# James Thomson
+
+Welcome to my personal site repo. Have a look around, install the project locally and dig around if you like. Make yourself at home :)
 
 ## Project setup
 ```
@@ -15,25 +17,6 @@ yarn run serve
 yarn run build
 ```
 
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Run your end-to-end tests
-```
-yarn run test:e2e
-```
-
-### Run your unit tests
+### Run unit tests
 ```
 yarn run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
