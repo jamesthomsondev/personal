@@ -170,12 +170,12 @@
       this.images = this.images.map((url) => ({
         template: `
           <img class="slide" 
-            src="${ url }?nf_resize=fit&w=960&h=420&q=100" 
+            src="${ url }?nf_resize=smartcrop&w=960&h=420&q=100" 
             srcset="  
-              ${ url }?nf_resize=fit&w=640&h=840&q=100 640w,
-              ${ url }?nf_resize=fit&w=960&h=420&q=100 960w,
-              ${ url }?nf_resize=fit&w=1242&h=1260&q=100 1242w,
-              ${ url }?nf_resize=fit&w=1920&h=840&q=100 1920w
+              ${ url }?nf_resize=smartcrop&w=640&h=840&q=100 640w,
+              ${ url }?nf_resize=smartcrop&w=960&h=420&q=100 960w,
+              ${ url }?nf_resize=smartcrop&w=1242&h=1260&q=100 1242w,
+              ${ url }?nf_resize=smartcrop&w=1920&h=840&q=100 1920w
             "
             sizes="(min-width: 540px) 960px, 100vw"
             alt=""

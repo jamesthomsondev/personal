@@ -2,12 +2,12 @@
   <article class="card hitarea" :class="props.type">
     <a :href="props.url" target="_blank">
       <img 
-        :src="`${ props.image }?nf_resize=fit&w=280&h=160 280w`" 
+        :src="`${ props.image }?nf_resize=smartcrop&w=280&h=160 280w`" 
         :srcset="`
-          ${ props.image }?nf_resize=fit&w=280&h=160 280w,
-          ${ props.image }?nf_resize=fit&w=344&h=160 344w,
-          ${ props.image }?nf_resize=fit&w=560&h=320 560w,
-          ${ props.image }?nf_resize=fit&w=688&h=320 688w,
+          ${ props.image }?nf_resize=smartcrop&w=280&h=160 280w,
+          ${ props.image }?nf_resize=smartcrop&w=344&h=160 344w,
+          ${ props.image }?nf_resize=smartcrop&w=560&h=320 560w,
+          ${ props.image }?nf_resize=smartcrop&w=688&h=320 688w,
         `"
         sizes="(min-width: 992px) 280px, 100vw"
         alt=""
