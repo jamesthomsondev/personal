@@ -2,7 +2,7 @@
   "data": [
     {
       "title": "Casino.eu",
-      "subTitle": "JavaScript, Vue, Laravel, Webpack, Pusher, GSAP, HTML, SASS, SVG, BitBucket",
+      "subTitle": "JavaScript, Vue, Vuex, Laravel, Webpack, Pusher, GSAP, HTML, SASS, SVG, BitBucket",
       "url": "https://www.casino.eu",
       "text": "<p>Over the past few years, Casino.eu has grown from a rather simple hub for gamers to a full fledged responsive and immersive SPA powered by a robust CMS (Casino.eu - Portal). Users of the site enjoy their time by discovering new games with fresh offers. And by using Pusher we keep them up to date in real time.</p><p>By using modern development techniques such as Webpack's code splitting coupled with es6 asynchronous imports and lazy loading images using IntersectionObserver, I was able to provide an optimized and efficient experience for both mobile and desktop users. The project itself consists of over 150 different components, directives, and custom Vue plugins.</p>",
       "images": [
@@ -19,7 +19,7 @@
     },
     {
       "title": "Casino.eu - Portal",
-      "subTitle": "JavaScript, Vue, Laravel, Webpack, Pusher, GSAP, HTML, SASS, SVG, BitBucket",
+      "subTitle": "JavaScript, Vue, Vuex, Laravel, Webpack, Pusher, GSAP, HTML, SASS, SVG, BitBucket",
       "url": "https://portal.casino.eu",
       "text": "<p>The backbone for Casino.eu, Portal drives content and provides the api required to power the Casino.eu ecosystem. Because of the clients unique requests, we felt it best to develop a custom CMS powered by Vue to help them manage things.</p><p>Because of Vue's simple yet powerful reactive feature set it was the ideal candidate to help us build a responsive SPA for the CMS. To assist Vue, Laravel is used to do the heavy lifting on the backend and Pusher is integrated to provide users with real time updates. As a final touch, GSAP helps bring life to a unique on boarding experience when users sign up to Casino.eu.</p>",
       "images": [

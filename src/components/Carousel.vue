@@ -1,11 +1,11 @@
 <template>
-  <hover-intent :ms="{ in: 1000, out: 500 }" color="var(--color-bg)" @in="isActive = true" @out="isActive = false">
-    <div class="carousel" :class="{ 'is-active': isActive }">
+  <hover-intent :ms="{ in: 1000, out: 500 }" color="var(--color-bg)" @in="handleIn" @out="handleOut">
+    <div class="carousel" :class="{ 'is-active': isActive }" @keyup.37="previous" @keyup.39="next">
       <div class="carousel__controls">
         <button class="carousel__controls-previous button" @click="previous">
           <icon-chevron-left class="carousel__controls-icon" />
         </button>
-        <button class="carousel__controls-next button" @click="next">
+        <button class="carousel__controls-next button" @click="next" ref="next">
           <icon-chevron-right class="carousel__controls-icon" />
         </button>
       </div>
@@ -30,15 +30,19 @@
 
     @include min-xs {
       max-width: 700px;
-      height: 320px;
+      height: 306px;
       margin: 0 auto 60px;
 
-      transition: max-width var(--transition-medium), height var(--transition-medium) var(--delay-short);
+      transition: max-width var(--transition-medium), height var(--transition-medium);
     }
 
     &.is-active {
       max-width: 960px;
-      height: 420px;
+      height: 260px;
+
+      @include min-sm {
+        height: 420px;
+      }
 
       .carousel__controls {
         pointer-events: auto;
@@ -95,13 +99,15 @@
   .carousel__body {
     position: relative;
     z-index: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
 
     .slide {
       position: absolute;
       z-index: 1;
       width: 100%;
-      height: 420px;
-      object-fit: cover;
+      object-fit: contain;
 
       @include min-xs {
         object-fit: none;
@@ -127,6 +133,14 @@
 
   import { clone } from '@/utilities';
 
+  function prefetch (asset) {
+    let img = new Image();
+
+    img.src = asset.url;
+    img.sizes = asset.sizes;
+    img.srcset = asset.srcset;
+  };
+
   export default {
     name: 'Carousel',
 
@@ -150,7 +164,14 @@
 
     computed: {
       currentSlide () {
-        return this.images[0];
+        return this.images[0].component;
+      }
+    },
+
+    watch: {
+      currentSlide: function (val, oldVal) {
+        let asset = this.images[1].data;
+        prefetch(asset);
       }
     },
 
@@ -163,25 +184,48 @@
       next () {
         let first = this.images.shift();
         this.images.push(first);
+      },
+
+      handleIn () {
+        this.isActive = true;
+
+        // If we focus the button too early, the carousel transition becomes jumpy
+        // adding a slight delay to focus fixes this without any UX repercussions
+        setTimeout(() => {
+          this.$refs.next.focus();
+        }, 500); 
+      },
+
+      handleOut () {
+        this.isActive = false
       }
     },
 
     created () {
-      this.images = this.images.map((url) => ({
-        template: `
-          <img class="slide" 
-            src="${ url }?nf_resize=fit&w=960&h=420&q=100" 
-            srcset="  
-              ${ url }?nf_resize=fit&w=640&h=840&q=100 640w,
-              ${ url }?nf_resize=fit&w=960&h=420&q=100 960w,
-              ${ url }?nf_resize=fit&w=1242&h=1260&q=100 1242w,
-              ${ url }?nf_resize=fit&w=1920&h=840&q=100 1920w
-            "
-            sizes="(min-width: 540px) 960px, 100vw"
-            alt=""
-          >
-        `
-      }));
+      this.images = this.images.map((url) => {
+        let sizes = `(min-width: 540px) 960px, 100vw`;
+        let srcset = `
+          ${ url }?nf_resize=fit&w=640&q=100 640w,
+          ${ url }?nf_resize=fit&w=960&q=100 960w,
+          ${ url }?nf_resize=fit&w=1242&q=100 1242w,
+          ${ url }?nf_resize=fit&w=1920&q=100 1920w
+        `;
+
+        return {
+          data: { url, srcset, sizes },
+          component: {
+            name: 'Slide',
+            template: `
+              <img class="slide" 
+                src="${ url }?nf_resize=fit&w=960&q=100" 
+                srcset="${ srcset }"
+                sizes="${ sizes }"
+                alt=""
+              >
+            `
+          }
+        }
+      });
     }
   };
 </script>
