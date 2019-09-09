@@ -1,11 +1,11 @@
 <template>
-  <hover-intent :ms="{ in: 1000, out: 500 }" color="var(--color-bg)" @in="isActive = true" @out="isActive = false">
-    <div class="carousel" :class="{ 'is-active': isActive }">
+  <hover-intent :ms="{ in: 1000, out: 500 }" color="var(--color-bg)" @in="handleIn" @out="handleOut">
+    <div class="carousel" :class="{ 'is-active': isActive }" @keyup.37="previous" @keyup.39="next">
       <div class="carousel__controls">
         <button class="carousel__controls-previous button" @click="previous">
           <icon-chevron-left class="carousel__controls-icon" />
         </button>
-        <button class="carousel__controls-next button" @click="next">
+        <button class="carousel__controls-next button" @click="next" ref="next">
           <icon-chevron-right class="carousel__controls-icon" />
         </button>
       </div>
@@ -169,11 +169,26 @@
       next () {
         let first = this.images.shift();
         this.images.push(first);
+      },
+
+      handleIn () {
+        this.isActive = true;
+
+        // If we focus the button too early, the carousel transition becomes jumpy
+        // adding a slight delay to focus fixes this without any UX repercussions
+        setTimeout(() => {
+          this.$refs.next.focus();
+        }, 500); 
+      },
+
+      handleIn () {
+        this.isActive = false
       }
     },
 
     created () {
       this.images = this.images.map((url) => ({
+        name: 'Slide',
         template: `
           <img class="slide" 
             src="${ url }?nf_resize=fit&w=960&q=100" 
