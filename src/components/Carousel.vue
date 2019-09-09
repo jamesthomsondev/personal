@@ -10,7 +10,7 @@
         </button>
       </div>
       <div class="carousel__body">
-        <transition name="fade" mode="in-out">
+        <transition name="fade">
           <component :is="currentSlide" />
         </transition>
       </div>
@@ -133,6 +133,14 @@
 
   import { clone } from '@/utilities';
 
+  function prefetch (asset) {
+    let img = new Image();
+
+    img.src = asset.url;
+    img.sizes = asset.sizes;
+    img.srcset = asset.srcset;
+  };
+
   export default {
     name: 'Carousel',
 
@@ -156,7 +164,14 @@
 
     computed: {
       currentSlide () {
-        return this.images[0];
+        return this.images[0].component;
+      }
+    },
+
+    watch: {
+      currentSlide: function (val, oldVal) {
+        let asset = this.images[1].data;
+        prefetch(asset);
       }
     },
 
@@ -187,22 +202,30 @@
     },
 
     created () {
-      this.images = this.images.map((url) => ({
-        name: 'Slide',
-        template: `
-          <img class="slide" 
-            src="${ url }?nf_resize=fit&w=960&q=100" 
-            srcset="  
-              ${ url }?nf_resize=fit&w=640&q=100 640w,
-              ${ url }?nf_resize=fit&w=960&q=100 960w,
-              ${ url }?nf_resize=fit&w=1242&q=100 1242w,
-              ${ url }?nf_resize=fit&w=1920&q=100 1920w
-            "
-            sizes="(min-width: 540px) 960px, 100vw"
-            alt=""
-          >
-        `
-      }));
+      this.images = this.images.map((url) => {
+        let sizes = `(min-width: 540px) 960px, 100vw`;
+        let srcset = `
+          ${ url }?nf_resize=fit&w=640&q=100 640w,
+          ${ url }?nf_resize=fit&w=960&q=100 960w,
+          ${ url }?nf_resize=fit&w=1242&q=100 1242w,
+          ${ url }?nf_resize=fit&w=1920&q=100 1920w
+        `;
+
+        return {
+          data: { url, srcset, sizes },
+          component: {
+            name: 'Slide',
+            template: `
+              <img class="slide" 
+                src="${ url }?nf_resize=fit&w=960&q=100" 
+                srcset="${ srcset }"
+                sizes="${ sizes }"
+                alt=""
+              >
+            `
+          }
+        }
+      });
     }
   };
 </script>
