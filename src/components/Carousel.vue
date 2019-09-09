@@ -181,7 +181,7 @@
         }, 500); 
       },
 
-      handleIn () {
+      handleOut () {
         this.isActive = false
       }
     },
