@@ -10,7 +10,7 @@
         </button>
       </div>
       <div class="carousel__body">
-        <transition name="fade">
+        <transition name="fade" mode="in-out">
           <component :is="currentSlide" />
         </transition>
       </div>
@@ -30,15 +30,19 @@
 
     @include min-xs {
       max-width: 700px;
-      height: 320px;
+      height: 306px;
       margin: 0 auto 60px;
 
-      transition: max-width var(--transition-medium), height var(--transition-medium) var(--delay-short);
+      transition: max-width var(--transition-medium), height var(--transition-medium);
     }
 
     &.is-active {
       max-width: 960px;
-      height: 420px;
+      height: 260px;
+
+      @include min-sm {
+        height: 420px;
+      }
 
       .carousel__controls {
         pointer-events: auto;
@@ -95,13 +99,15 @@
   .carousel__body {
     position: relative;
     z-index: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
 
     .slide {
       position: absolute;
       z-index: 1;
       width: 100%;
-      height: 420px;
-      object-fit: cover;
+      object-fit: contain;
 
       @include min-xs {
         object-fit: none;
@@ -170,12 +176,12 @@
       this.images = this.images.map((url) => ({
         template: `
           <img class="slide" 
-            src="${ url }?nf_resize=fit&w=960&h=420&q=100" 
+            src="${ url }?nf_resize=fit&w=960&q=100" 
             srcset="  
-              ${ url }?nf_resize=fit&w=640&h=840&q=100 640w,
-              ${ url }?nf_resize=fit&w=960&h=420&q=100 960w,
-              ${ url }?nf_resize=fit&w=1242&h=1260&q=100 1242w,
-              ${ url }?nf_resize=fit&w=1920&h=840&q=100 1920w
+              ${ url }?nf_resize=fit&w=640&q=100 640w,
+              ${ url }?nf_resize=fit&w=960&q=100 960w,
+              ${ url }?nf_resize=fit&w=1242&q=100 1242w,
+              ${ url }?nf_resize=fit&w=1920&q=100 1920w
             "
             sizes="(min-width: 540px) 960px, 100vw"
             alt=""
