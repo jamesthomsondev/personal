@@ -1,0 +1,29 @@
+// Imported via vue.config.js so entire project has access to mixins
+$breakpoint-xs: 540px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 992px;
+$breakpoint-lg: 1200px;
+
+@mixin min-xs {
+  @media (min-width: #{$breakpoint-xs}) {
+    @content;
+  }
+}
+
+@mixin min-sm {
+  @media (min-width: #{$breakpoint-sm}) {
+    @content;
+  }
+}
+
+@mixin min-md {
+  @media (min-width: #{$breakpoint-md}) {
+    @content;
+  }
+}
+
+@mixin min-lg {
+  @media (min-width: #{$breakpoint-lg}) {
+    @content;
+  }
+}
