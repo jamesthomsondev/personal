@@ -78,13 +78,19 @@
     }
 
     &-previous {
-      padding-left: 20px;
       transform: translateX(-100px);
+
+      @include min-xs {
+        padding-left: 20px;
+      }
     }
 
     &-next {
-      padding-right: 20px;
       transform: translateX(100px);
+
+      @include min-xs {
+        padding-right: 20px;
+      }
     }
 
     &-icon {
