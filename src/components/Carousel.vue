@@ -25,7 +25,7 @@
     height: 50vw;
     margin-bottom: 10%;
 
-    background-color: var(--color-bg-inverse);
+    background-color: var(--black);
     transition: height var(--transition-medium);
 
     @include min-xs {

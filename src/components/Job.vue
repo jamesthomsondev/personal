@@ -39,7 +39,7 @@
     h4 {
       margin-bottom: 20px;
       font-size: 2.6rem;
-      color: var(--color-text-20);
+      color: var(--color-text-30);
     }
 
     ul {
@@ -87,7 +87,7 @@
         }
 
 
-        $colors-list: var(--color-text-50) var(--color-text-40) var(--color-text-20) var(--color-text-10);
+        $colors-list: var(--color-text-50) var(--color-text-40) var(--color-text-30) var(--color-text-20);
         @each $current-color in $colors-list {
           $i: index($colors-list, $current-color);
           

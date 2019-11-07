@@ -5,7 +5,8 @@
   --eggplant-0: #2c2938; // Lightest
   --eggplant-10: #1c1a24;
 
-  --purple-0: #5846a2; // Lightest
+  --purple-0: #a594e9; // Lightest
+  --purple-10: #5846a2;
 
   --blue-0: #346ca6; // Lightest
   --blue-10: #193D60;
@@ -31,7 +32,7 @@
   --color-link: var(--blue-0);
   --color-link-hover: var(--blue-10);
   --color-link-active: var(--blue-10);
-  --color-link-visited: var(--purple-0);
+  --color-link-visited: var(--purple-10);
 
   --color-nav-link: var(--gray-30);
   --color-nav-link-hover: var(--gray-40);
