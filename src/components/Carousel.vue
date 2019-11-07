@@ -139,7 +139,7 @@
     img.src = asset.url;
     img.sizes = asset.sizes;
     img.srcset = asset.srcset;
-  };
+  }
 
   export default {
     name: 'Carousel',
@@ -169,7 +169,7 @@
     },
 
     watch: {
-      currentSlide: function (val, oldVal) {
+      currentSlide: function () {
         let asset = this.images[1].data;
         prefetch(asset);
       }
