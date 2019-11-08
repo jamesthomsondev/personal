@@ -12,7 +12,8 @@
         "GSAP",
         "SVG",
         "WebSockets",
-        "Express"
+        "Express",
+        "AdonisJS"
       ]
     },
     {

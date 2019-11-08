@@ -25,7 +25,7 @@
     height: 50vw;
     margin-bottom: 10%;
 
-    background-color: var(--color-bg-inverse);
+    background-color: var(--black);
     transition: height var(--transition-medium);
 
     @include min-xs {
@@ -78,13 +78,19 @@
     }
 
     &-previous {
-      padding-left: 20px;
       transform: translateX(-100px);
+
+      @include min-xs {
+        padding-left: 20px;
+      }
     }
 
     &-next {
-      padding-right: 20px;
       transform: translateX(100px);
+
+      @include min-xs {
+        padding-right: 20px;
+      }
     }
 
     &-icon {
@@ -139,7 +145,7 @@
     img.src = asset.url;
     img.sizes = asset.sizes;
     img.srcset = asset.srcset;
-  };
+  }
 
   export default {
     name: 'Carousel',
@@ -169,7 +175,7 @@
     },
 
     watch: {
-      currentSlide: function (val, oldVal) {
+      currentSlide: function () {
         let asset = this.images[1].data;
         prefetch(asset);
       }

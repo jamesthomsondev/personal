@@ -71,7 +71,7 @@
     h2 {
       font-size: var(--h4);
       font-style: italic;
-      color: var(--color-text-20);
+      color: var(--color-text-30);
     }
 
     &.profile {
