@@ -1,6 +1,6 @@
 <template functional>
   <article class="card hitarea" :class="props.type">
-    <a :href="props.url" target="_blank">
+    <a :href="props.url" rel="noreferrer" target="_blank">
       <img 
         :src="`${ props.image }?nf_resize=fit&w=280&h=160 280w`" 
         :srcset="`
@@ -16,7 +16,7 @@
       <h1>{{ props.title }}</h1>
       <h2 v-if="props.subTitle">{{ props.subTitle }}</h2>
       <p class="small">{{ props.text }}</p>
-      <p class="small"><a class="link" :href="props.url" target="_blank">View {{ props.type }}</a></p>
+      <p class="small"><a class="link" :href="props.url" rel="noreferrer" target="_blank">View {{ props.type }}</a></p>
     </a>
   </article>
 </template>

@@ -2,10 +2,10 @@
   <hover-intent :ms="{ in: 1000, out: 500 }" color="var(--color-bg)" @in="handleIn" @out="handleOut">
     <div class="carousel" :class="{ 'is-active': isActive }" @keyup.37="previous" @keyup.39="next">
       <div class="carousel__controls">
-        <button class="carousel__controls-previous button" @click="previous">
+        <button title="previous" class="carousel__controls-previous button" @click="previous">
           <icon-chevron-left class="carousel__controls-icon" />
         </button>
-        <button class="carousel__controls-next button" @click="next" ref="next">
+        <button title="next" class="carousel__controls-next button" @click="next" ref="next">
           <icon-chevron-right class="carousel__controls-icon" />
         </button>
       </div>
