@@ -4,6 +4,8 @@
       "heading": "Knowledge",
       "list": [
         "JavaScript (es6+)",
+        "Typescript",
+        "React",
         "Vue",
         "HTML5",
         "CSS3",
@@ -13,7 +15,11 @@
         "SVG",
         "WebSockets",
         "Express",
-        "AdonisJS"
+        "AdonisJS",
+        "Ionic",
+        "Capacitor",
+        "Tailwind",
+        "Twilio APIs"
       ]
     },
     {
@@ -22,6 +28,8 @@
         "TDD",
         "Unit Testing",
         "End-to-End Testing",
+        "SPA Architecture Design & Developement",
+        "CI/CD Methodology",
         "Web Animation",
         "Responsive Design & Development",
         "Front End Web Architecture",
@@ -38,11 +46,15 @@
         "Photoshop",
         "Illustrator",
         "Sketch",
+        "Figma",
         "GitHub",
         "Bitbucket",
         "CLI",
         "NPM/Yarn",
-        "Sublime"
+        "VSCode",
+        "Sublime",
+        "Prettier",
+        "ESLint"
       ]
     },
     {
